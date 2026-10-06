@@ -1,0 +1,13 @@
+{
+    "upi": {
+        "name": "Yoooo App",
+        "id": "919692301234@boi"
+    },
+    "wallets": {
+        "btc": { "name": "Bitcoin BTC", "network": "BTC Network", "address": "1Ldtbf6ot4nbkRktkPX3tuyXjG8YMeDA9j" },
+        "ltc": { "name": "Litecoin LTC", "network": "LTC Network", "address": "Lfg2TMLVEWDaCPUm7nXyJhUsPg2nz6iS5N" },
+        "eth": { "name": "Ethereum ETH", "network": "Ethereum Network", "address": "0x99EB504de2C602815fBe40c4963D0df23acD044e" },
+        "trx": { "name": "Tron TRX", "network": "Tron Network", "address": "TEoBqVa5pkqArcbsxoXvR6qjBevuXYrjmM" },
+        "xrp": { "name": "Ripple XRP", "network": "XRP Network", "address": "rKHyQX2ZYLPgPjhGnmM2R8wwSvCUTuYpCW" }
+    }
+}

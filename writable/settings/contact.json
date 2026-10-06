@@ -1,0 +1,14 @@
+{
+    "telegram": {
+        "enabled": 1,
+        "value": "@yoooo_network"
+    },
+    "whatsapp": {
+        "enabled": 1,
+        "value": "+919337432860"
+    },
+    "phone": {
+        "enabled": 0,
+        "value": "+919337432860"
+    }
+}
