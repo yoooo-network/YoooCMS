@@ -4,11 +4,34 @@ namespace App\Controllers\Api\V1;
 
 use App\Models\UserModel;
 use App\Models\ProfileModel;
+use App\Models\BookingModel;
 use App\Services\EmailService;
 use Throwable;
 
 class User extends BaseController
 {
+    /** Return approved booking requests for the authenticated user's profile. */
+    public function bookings()
+    {
+        $userId = $this->request->api_user_id ?? null;
+        if (!$userId) {
+            return $this->sendError('Unauthorized', 401);
+        }
+
+        $profile = (new ProfileModel())->where('user_id', (int) $userId)->first();
+        if (!$profile) {
+            return $this->sendResponse(['bookings' => []]);
+        }
+
+        $bookings = (new BookingModel())
+            ->where('profile_id', (int) $profile['id'])
+            ->where('LOWER(TRIM(status))', 'approved')
+            ->orderBy('created_at', 'DESC')
+            ->findAll();
+
+        return $this->sendResponse(['bookings' => $bookings]);
+    }
+
     private function getVerificationUploadPath(int $userId): string
     {
         return WRITEPATH . 'uploads' . DIRECTORY_SEPARATOR . 'verifications' . DIRECTORY_SEPARATOR . 'user_' . $userId . DIRECTORY_SEPARATOR;

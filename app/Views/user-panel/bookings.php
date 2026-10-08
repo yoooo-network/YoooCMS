@@ -1,4 +1,9 @@
 <?= $this->include('user-panel/includes/header') ?>
+<?php
+$bookings = array_values(array_filter($bookings ?? [], static function ($booking) {
+    return strtolower(trim((string) ($booking['status'] ?? ''))) === 'approved';
+}));
+?>
 <main class="flex-1 px-4 pb-28 pt-20">
     <div class="mx-auto max-w-5xl">
         <div class="mb-6">

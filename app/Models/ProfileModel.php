@@ -73,7 +73,7 @@ class ProfileModel extends Model
         }
 
         $builder = $this->builder();
-        $builder->select('id, name, gender, sexuality, location, images, membership, status, is_verified, created_at');
+        $builder->select('id, name, gender, sexuality, location, description, images, membership, status, is_verified, created_at');
 
         // Use simpler where clauses to avoid potential 500 errors with complex expressions in some SQL drivers
         $builder->groupStart()

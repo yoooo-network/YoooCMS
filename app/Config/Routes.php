@@ -129,7 +129,7 @@ if ($apiEnabled) $routes->group('api/v1', ['namespace' => 'App\Controllers\Api\V
     $routes->get('home', 'Home::index');
     $routes->get('countries', 'Country::index');
     $routes->get('cities', 'City::index');
-    $routes->get('profiles', 'Profile::index');
+    $routes->get('profiles', 'Profile::index', ['filter' => 'cors']);
     $routes->get('profile/(:num)', 'Profile::show/$1');
     $routes->post('profile/(:num)/book', 'Profile::book/$1');
     
@@ -147,6 +147,7 @@ if ($apiEnabled) $routes->group('api/v1', ['namespace' => 'App\Controllers\Api\V
     $routes->group('', ['filter' => 'api_auth'], function($routes) {
         $routes->get('dashboard', 'User::dashboard');
         $routes->get('user/profile', 'User::profile');
+        $routes->get('user/bookings', 'User::bookings');
         $routes->post('user/profile/update', 'User::updateProfile');
         $routes->post('user/profile/upload-photo', 'User::uploadPhoto');
         $routes->post('user/profile/upload-verification-files', 'User::uploadVerificationFiles');
